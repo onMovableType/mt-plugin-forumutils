@@ -273,6 +273,18 @@ sub xfrm_edit_entry {
 s{(<li class="pings-link">.*</li>)}{$1<mt:if name="is_featured"><li class="featured-link"><span>This is a featured entry</span><input type="hidden" name="is_featured" value="1" /></li><mt:else><input type="hidden" name="is_featured" value="0" /></mt:if>}m;
 }
 
+sub _featured_comment_qf {
+    my ( $terms, $args ) = @_;
+    require MT::Comment;
+    $terms->{is_featured} = 1;
+}
+
+sub _featured_entry_qf {
+    my ( $terms, $args ) = @_;
+    require MT::Entry;
+    $terms->{is_featured} = 1;
+}
+
 1;
 
 __END__

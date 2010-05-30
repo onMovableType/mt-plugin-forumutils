@@ -16,6 +16,20 @@ object_types:
         is_featured: smallint
         promoted_to_entry_id: integer meta
 
+applications:
+    cms:
+        list_filters:
+            comment:
+                featured_comments:
+                    label: "Featured Comments"
+                    order: 100
+                    handler: $ForumUtils::ForumUtils::Plugin::_featured_comment_qf
+            entry:
+                featured_entries:
+                    label: "Featured Entries"
+                    order: 100
+                    handler: $ForumUtils::ForumUtils::Plugin::_featured_entry_qf
+
 tags:
     function:
         CommentPromotedToEntryId: $ForumUtils::ForumUtils::Plugin::tag_promoted_to_entry_id
